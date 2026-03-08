@@ -60,8 +60,8 @@ pip install aiohttp music-metadata
 
 ```bash
 # 方式1: 环境变量
-export FEISHU_APP_ID="cli_xxx"
-export FEISHU_APP_SECRET="xxx"
+export FEISHU_APP_ID="你的飞书应用ID"
+export FEISHU_APP_SECRET="你的飞书应用Secret"
 
 # 方式2: OpenClaw配置 (自动读取)
 # ~/.openclaw/openclaw.json
@@ -75,7 +75,7 @@ export FEISHU_APP_SECRET="xxx"
 from feishu_ultimate.message.sender import send_text_message
 
 await send_text_message(
-    receive_id="ou_xxx",
+    receive_id="用户的open_id",
     text="Hello World!"
 )
 ```
@@ -86,7 +86,7 @@ await send_text_message(
 from feishu_ultimate.message.sender import send_card_message
 
 await send_card_message(
-    receive_id="ou_xxx",
+    receive_id="用户的open_id",
     title="标题",
     content="# Markdown内容\n\n**加粗**和`代码`",
     color="blue",
@@ -103,7 +103,7 @@ from feishu_ultimate.document.writer import create_feishu_document
 result = await create_feishu_document(
     title="我的文档",
     content="# 标题\n\n这是文档内容...",
-    owner_openid="ou_xxx",  # 可选：自动转移所有权
+    owner_openid="用户的open_id",  # 可选：自动转移所有权
     update_index=True       # 可选：更新索引
 )
 
@@ -158,7 +158,7 @@ skillhub install feishu-ultimate
 
 ```
 /feishu-ultimate send_text
-receive_id: ou_xxx
+receive_id: 用户的open_id
 text: Hello!
 ```
 
