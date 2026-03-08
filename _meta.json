@@ -1,0 +1,55 @@
+{
+  "name": "feishu-ultimate",
+  "version": "2.0.0",
+  "description": "飞书终极统一技能 - 整合并优化了4个飞书技能的所有功能",
+  "author": "OpenClaw AI",
+  "license": "MIT",
+  "compatibility": "openclaw",
+  "tags": [
+    "feishu",
+    "lark",
+    "message",
+    "document",
+    "card",
+    "unified"
+  ],
+  "features": [
+    "统一Token管理",
+    "统一API客户端",
+    "统一安全扫描",
+    "消息发送",
+    "消息获取",
+    "文档管理",
+    "群聊管理",
+    "索引管理"
+  ],
+  "dependencies": {
+    "python3": ">=3.8",
+    "aiohttp": ">=3.8.0"
+  },
+  "source_skills": [
+    {
+      "name": "feishu-card",
+      "version": "1.4.11"
+    },
+    {
+      "name": "feishu-smart-doc-writer",
+      "version": "1.4.1"
+    },
+    {
+      "name": "feishu-message",
+      "version": "1.0.5"
+    },
+    {
+      "name": "feishu-proactive-messenger",
+      "version": "1.0.1"
+    }
+  ],
+  "optimizations": [
+    "统一Python实现（避免Node.js和Python混用）",
+    "统一Token管理（缓存、自动刷新）",
+    "统一API调用（带重试、错误处理）",
+    "统一安全扫描（防泄漏）",
+    "模块化架构设计"
+  ]
+}
