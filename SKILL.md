@@ -77,7 +77,7 @@ Send text message to user or group.
 
 ```json
 {
-  "receive_id": "ou_xxx or oc_xxx",
+  "receive_id": "用户的open_id or 群ID",
   "text": "Message content / 消息内容",
   "receive_id_type": "open_id or chat_id (auto-detected if omitted)"
 }
@@ -89,7 +89,7 @@ Send rich interactive card with Markdown, buttons, images.
 
 ```json
 {
-  "receive_id": "ou_xxx or oc_xxx",
+  "receive_id": "用户的open_id or 群ID",
   "title": "Card title / 卡片标题",
   "content": "Markdown content / Markdown内容",
   "color": "blue|red|orange|green|purple|grey",
@@ -105,7 +105,7 @@ Send audio file as voice bubble.
 
 ```json
 {
-  "receive_id": "ou_xxx or oc_xxx",
+  "receive_id": "用户的open_id or 群ID",
   "file_path": "/path/to/audio.mp3",
   "duration_ms": 12345
 }
@@ -119,7 +119,7 @@ Fetch message content by ID.
 
 ```json
 {
-  "message_id": "om_xxx",
+  "message_id": "消息ID",
   "recursive": false,
   "raw": false
 }
@@ -131,7 +131,7 @@ List pinned messages in a chat.
 
 ```json
 {
-  "chat_id": "oc_xxx"
+  "chat_id": "群ID"
 }
 ```
 
@@ -146,7 +146,7 @@ Create document with auto-chunk writing.
   "title": "Document title / 文档标题",
   "content": "Document content / 文档内容",
   "folder_token": "folder_token (optional)",
-  "owner_openid": "ou_xxx (optional, auto-transfer ownership if provided)",
+  "owner_openid": "用户的open_id (optional, auto-transfer ownership if provided)",
   "update_index": true
 }
 ```
@@ -157,7 +157,7 @@ Append content to existing document with auto-chunk.
 
 ```json
 {
-  "doc_url": "https://feishu.cn/docx/xxx",
+  "doc_url": "https://feishu.cn/docx/文档ID",
   "content": "Content to append / 要追加的内容"
 }
 ```
@@ -168,8 +168,8 @@ Transfer document ownership to user.
 
 ```json
 {
-  "doc_url": "https://feishu.cn/docx/xxx",
-  "owner_openid": "ou_xxx"
+  "doc_url": "https://feishu.cn/docx/文档ID",
+  "owner_openid": "用户的open_id"
 }
 ```
 
@@ -205,7 +205,7 @@ Create new group chat.
 ```json
 {
   "name": "Group name / 群名称",
-  "user_ids": ["ou_xxx", "ou_xxx"],
+  "user_ids": ["用户的open_id", "用户的open_id"],
   "description": "Group description / 群描述"
 }
 ```
@@ -216,7 +216,7 @@ Get group chat information.
 
 ```json
 {
-  "chat_id": "oc_xxx"
+  "chat_id": "群ID"
 }
 ```
 
@@ -226,7 +226,7 @@ Get group chat information.
 
 ```bash
 /feishu-ultimate send_text
-receive_id: ou_xxx
+receive_id: 用户的open_id
 text: Hello World!
 ```
 
@@ -234,7 +234,7 @@ text: Hello World!
 
 ```bash
 /feishu-ultimate send_card
-receive_id: ou_xxx
+receive_id: 用户的open_id
 title: Test Card
 content: # Heading\n\nContent with **bold** and `code`.
 color: blue
@@ -246,7 +246,7 @@ color: blue
 /feishu-ultimate create_doc
 title: My Document
 content: # Introduction\n\nThis is a long document...
-owner_openid: ou_xxx
+owner_openid: 用户的open_id
 update_index: true
 ```
 
@@ -262,9 +262,9 @@ keyword: AI Tech
 ### 环境变量 Environment Variables
 
 ```bash
-FEISHU_APP_ID=cli_xxx
-FEISHU_APP_SECRET=xxx
-FEISHU_DEFAULT_TARGET=ou_xxx
+FEISHU_APP_ID="你的飞书应用ID"
+FEISHU_APP_SECRET="你的飞书应用Secret"
+FEISHU_DEFAULT_TARGET="用户的open_id"
 ```
 
 ### OpenClaw配置文件 OpenClaw Config
@@ -275,9 +275,9 @@ FEISHU_DEFAULT_TARGET=ou_xxx
     "feishu": {
       "accounts": {
         "default": {
-          "appId": "cli_xxx",
-          "appSecret": "xxx",
-          "defaultTo": "user:ou_xxx"
+          "appId": "你的飞书AppID",
+          "appSecret": "你的飞书AppSecret",
+          "defaultTo": "user:用户的open_id"
         }
       }
     }
